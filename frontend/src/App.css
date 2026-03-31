@@ -567,3 +567,50 @@ body {
 .sidebar {
   backdrop-filter: blur(4px);
 }
+
+.dashboard-input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 12px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.dashboard-btn {
+  width: 100%;
+  padding: 12px;
+  background: #111827;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.dashboard-btn:hover {
+  opacity: 0.92;
+}
+
+.delete-btn {
+  margin-top: 12px;
+  padding: 10px 16px;
+  background: #dc2626;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.delete-btn:hover {
+  opacity: 0.9;
+}
+
+.sidebar-menu button.active-menu {
+  background: rgba(255, 255, 255, 0.22);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+

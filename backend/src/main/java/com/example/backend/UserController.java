@@ -3,6 +3,8 @@ package com.example.backend;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
 public class UserController {
@@ -35,9 +37,6 @@ public class UserController {
     @PostMapping("/login")
     public LoginResponse login(@RequestBody UserData user) {
         try {
-            System.out.println("Login API called");
-            System.out.println("Username entered: " + user.getUsername());
-
             UserData oldUser = repo.findByUsername(user.getUsername());
 
             if (oldUser == null) {
@@ -59,5 +58,25 @@ public class UserController {
             e.printStackTrace();
             return new LoginResponse(0, null, null, "Login error");
         }
+    }
+
+    @GetMapping("/students/count")
+    public long getStudentCount() {
+        return repo.countByRole("student");
+    }
+
+    @GetMapping("/tutors/count")
+    public long getTutorCount() {
+        return repo.countByRole("tutor");
+    }
+
+    @GetMapping("/students")
+    public List<UserData> getStudents() {
+        return repo.findByRole("student");
+    }
+
+    @GetMapping("/tutors")
+    public List<UserData> getTutors() {
+        return repo.findByRole("tutor");
     }
 }
